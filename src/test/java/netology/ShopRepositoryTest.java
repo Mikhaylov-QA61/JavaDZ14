@@ -53,12 +53,6 @@ public class ShopRepositoryTest {
         shop.add(product2);
         shop.add(product3);
 
-        try {
-            shop.add(product2);
-        } catch (RuntimeException e) {
-            int actual = product2.getId();
-            int expected = 22;
-            Assertions.assertEquals(expected, actual);
-        }
+        Assertions.assertThrows(AlreadyExistsException.class, () -> shop.add(product2));
     }
 }

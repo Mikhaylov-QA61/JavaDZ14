@@ -31,7 +31,7 @@ public class ShopRepository {
         if (findById(compare) == null) {
             products = addToArray(products, product);
         } else {
-            throw new RuntimeException("Уже существует продукция с ID: " + compare);
+            throw new AlreadyExistsException("Уже существует продукция с ID: " + compare);
         }
 
     }
